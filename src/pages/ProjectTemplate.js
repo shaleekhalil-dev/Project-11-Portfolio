@@ -1,4 +1,3 @@
-// src/pages/ProjectTemplate.js
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projectsData } from '../projectsData';
@@ -24,20 +23,39 @@ function ProjectTemplate() {
             <p style={{ textAlign: 'right', direction: 'rtl' }}><strong>الوصف:</strong> {project.desc_ar}</p>
         </div>
         
-        <div style={{ marginTop: '20px', display: 'flex', gap: '15px' }}>
+        <div style={{ marginTop: '20px', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
             <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ padding: '10px 20px', backgroundColor: '#333', color: 'white', textDecoration: 'none', borderRadius: '5px' }}>
               GitHub Repo | مستودع الكود
             </a>
             
             <a href={project.pdfPath} download style={{ padding: '10px 20px', backgroundColor: '#27ae60', color: 'white', textDecoration: 'none', borderRadius: '5px' }}>
-              Download PDF | تحميل التقرير
+              Download Report | تحميل التقرير
             </a>
+
+            {/* الزر الجديد يظهر فقط إذا وجد ملف شرائح */}
+            {project.slidesPath && (
+              <a href={project.slidesPath} download style={{ padding: '10px 20px', backgroundColor: '#e67e22', color: 'white', textDecoration: 'none', borderRadius: '5px' }}>
+                Download Slides | تحميل العرض التقديمي
+              </a>
+            )}
         </div>
       </div>
 
-      <div style={{ border: '1px solid #ccc', borderRadius: '8px', height: '800px' }}>
-        <iframe src={project.pdfPath} title={project.title} width="100%" height="100%" style={{ border: 'none' }}></iframe>
+      {/* عرض التقرير الرئيسي */}
+      <h3 style={{ marginBottom: '10px' }}>Project Report | تقرير المشروع</h3>
+      <div style={{ border: '1px solid #ccc', borderRadius: '8px', height: '600px', marginBottom: '30px' }}>
+        <iframe src={project.pdfPath} title={`${project.title} Report`} width="100%" height="100%" style={{ border: 'none' }}></iframe>
       </div>
+
+      {/* عرض ملف الشرائح إذا وجد في الأسفل */}
+      {project.slidesPath && (
+        <>
+          <h3 style={{ marginBottom: '10px' }}>Presentation Slides | شرائح العرض</h3>
+          <div style={{ border: '1px solid #ccc', borderRadius: '8px', height: '600px' }}>
+            <iframe src={project.slidesPath} title={`${project.title} Slides`} width="100%" height="100%" style={{ border: 'none' }}></iframe>
+          </div>
+        </>
+      )}
     </div>
   );
 }

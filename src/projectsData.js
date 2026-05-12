@@ -80,5 +80,14 @@ export const projectsData = [
     desc_ar: "مشروع يحلل العائد على الاستثمار في المواهب، ويربط استثمارات رأس المال النفسي بالنتائج المالية.",
     github: "https://github.com/shaleekhalil-dev/Strategic-Talent-ROI",
     pdfPath: "/pdfs/Strategic-Talent-ROI.pdf"
+  },
+  {
+    id: 11,
+    title: "SpaceX Strategic Integrated Data Analysis",
+    desc_en: "A comprehensive project including a technical report and presentation slides on the strategic analysis of SpaceX data.",
+    desc_ar: "مشروع متكامل يتضمن تقريراً فنياً وشرائح عرض حول التحليل الاستراتيجي لبيانات سبيس إكس.",
+    github: "https://github.com/shaleekhalil-dev/Project-11-Portfolio",
+    pdfPath: "/pdfs/SpaceX-Analytics-Report.pdf",
+    slidesPath: "/pdfs/Project-11-Strategic-Integrated-Data-Analysis.pdf"
   }
 ];
